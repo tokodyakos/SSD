@@ -1,0 +1,27 @@
+Események(Events)
+A kivy alkalmazás esemény vezérelt, ami azt jelenti hogy vagy a felhasználótól, vagy kódba beépített események hatására hajtódnak végre a kód egyes részei.
+	-Kétféle esemény generálás mód:
+
+			+ Óra esemény --> A felhasználótól függetlenül a kódba beépítetten generálódik az esemény.
+				Clock objektum meghívásával történik az óra esemény generálása.
+					a) Egyszer hívódik meg: schedule_once()
+					b) Ismétlődően hívjuk meg: shcedule_interval()
+					c) Másik feltételtől függően akarjuk az esemény kiváltását (triggerált esemény): create_trigger() metódussal.
+				A Clock objektumot a form kivy.clock import Clock
+
+			+ Egérmozgatáshoz kapcsolódó események --> A MotionEvent objektum része, én_motion esemény hívódik meg, amelyik generálja az egér mozgásához kapcsolódó eseményeket a widgetben.
+				A Button, nyomógomb widget eseménye:
+					A nyomógombot a kivy.uix.button modulból importáljuk.
+					A button (nyomógomb) az egy címke, hozzákapcsolt akciókkal, amelyek akkor váltódnak ki amikor a nyomógombot megnyomják vagy elengedik.
+					A nyomógombnak a tulajdonságai a Label-hez hasonlóan állítható be (pl.:text, font-size, padding, background-color...stb)
+					
+					Egéresemények:
+						-on_press
+						-on_relase
+
+						a) Események nyomógombhoz kötése: bind metódussal
+							self.quitbutton.bind(on_press = self.callback)
+						b) Tulajdonságaimál állítjuk be:
+							self.quitbutton = Button(text="kilépés, on_press = self.callback)
+
+			+
